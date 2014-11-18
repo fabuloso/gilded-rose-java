@@ -6,12 +6,26 @@ import org.junit.Test;
 
 public class GildedRoseTest {
 
-    @Test
-    public void sulfuras_quality_never_decreases() {
-        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 0, 80) };
+    private static final int QUALITY = 80;
+
+	@Test
+    public void conjured_item_quality_degrades_by_one_before_sell_in() {
+        Item[] items = new Item[] { new Item("Conjured", 1, QUALITY) };
         GildedRose app = new GildedRose(items);
+        
         app.updateQuality();
-        assertEquals(80, app.items[0].quality);
+        
+        assertEquals(QUALITY - 2, app.items[0].quality);
+    }
+    
+    @Test
+    public void conjured_item_quality_degrades_by_two_after_sell_in() {
+        Item[] items = new Item[] { new Item("Conjured", 0, 80) };
+        GildedRose app = new GildedRose(items);
+        
+        app.updateQuality();
+        
+        assertEquals(QUALITY - 4, app.items[0].quality);
     }
 
 }
