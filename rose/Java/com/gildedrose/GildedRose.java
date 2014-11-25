@@ -16,6 +16,7 @@ class GildedRose {
         			} else {
         				items[i].quality = items[i].quality - 4;
         			}
+        			items[i].sellIn -= 1;
         		}
             	continue;
         	}
