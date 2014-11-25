@@ -23,7 +23,7 @@ public class GildedRoseTest {
     
     @Test
     public void conjured_item_quality_degrades_by_two_after_sell_in() {
-        Item[] items = new Item[] { new Item("Conjured", 0, 80) };
+        Item[] items = new Item[] { new Item("Conjured", 0, QUALITY) };
         GildedRose app = new GildedRose(items);
         
         app.updateQuality();
