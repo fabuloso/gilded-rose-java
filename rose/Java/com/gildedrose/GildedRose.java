@@ -1,7 +1,7 @@
 package com.gildedrose;
 
 class GildedRose {
-    private static final int SELL_IN_DECREASE = 1;
+    private static final int STANDARD_SELL_IN_DECREASE = 1;
     Item[] items;
 
     public GildedRose(Item[] items) {
@@ -12,11 +12,11 @@ class GildedRose {
         for (Item item : items) {
             if (item.name.equals("Conjured")) {
                 if (item.quality > 0) {
-                    item.quality = item.quality - 2 * SELL_IN_DECREASE;
+                    item.quality = item.quality - 2 * STANDARD_SELL_IN_DECREASE;
                     if (item.sellIn <= 0) {
-                        item.quality = item.quality - 2 * SELL_IN_DECREASE;
+                        item.quality = item.quality - 2 * STANDARD_SELL_IN_DECREASE;
                     }
-                    item.sellIn -= SELL_IN_DECREASE;
+                    item.sellIn -= STANDARD_SELL_IN_DECREASE;
                 }
                 continue;
             }
@@ -25,7 +25,7 @@ class GildedRose {
                 continue;
             }
 
-            item.sellIn = item.sellIn - SELL_IN_DECREASE;
+            item.sellIn = item.sellIn - STANDARD_SELL_IN_DECREASE;
 
             if (!item.name.equals("Aged Brie") && !item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (item.quality > 0) {
