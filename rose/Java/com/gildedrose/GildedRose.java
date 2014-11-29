@@ -1,8 +1,14 @@
 package com.gildedrose;
 
 class GildedRose {
+    private static final String CONJURED = "Conjured";
+    private static final String AGED_BRIE = "Aged Brie";
+    private static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
+    private static final String BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
+
     private static final int STANDARD_MAXIMUM_QUALITY = 50;
     private static final int STANDARD_SELL_IN_DECREASE = 1;
+
     Item[] items;
 
     public GildedRose(Item[] items) {
@@ -11,7 +17,7 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            if (item.name.equals("Conjured")) {
+            if (CONJURED.equals(item.name)) {
                 if (item.quality > 0) {
                     item.quality = item.quality - 2 * STANDARD_SELL_IN_DECREASE;
                     if (item.sellIn <= 0) {
@@ -22,11 +28,11 @@ class GildedRose {
                 continue;
             }
 
-            if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
+            if (SULFURAS_HAND_OF_RAGNAROS.equals(item.name)) {
                 continue;
             }
 
-            if (item.name.equals("Aged Brie")) {
+            if (AGED_BRIE.equals(item.name)) {
                 if (item.quality < STANDARD_MAXIMUM_QUALITY) {
                     item.quality = item.quality + 1;
                     if (item.sellIn <= 0) {
@@ -37,7 +43,7 @@ class GildedRose {
                 continue;
             }
 
-            if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT.equals(item.name)) {
                 if (item.sellIn < 0) {
                     item.quality = item.quality - item.quality;
                 } else {
