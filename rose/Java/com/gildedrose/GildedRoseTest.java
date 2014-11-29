@@ -160,4 +160,14 @@ public class GildedRoseTest {
 
         assertEquals(50, app.items[0].quality);
     }
+
+    @Test
+    public void backstage_passes_sell_in_goes_down_of_1_after_update() {
+        Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", SELL_IN, QUALITY) };
+        GildedRose app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertEquals(SELL_IN - 1, app.items[0].sellIn);
+    }
 }

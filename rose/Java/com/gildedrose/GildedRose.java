@@ -62,6 +62,7 @@ class GildedRose {
                         }
                     }
                 }
+                item.sellIn -= STANDARD_SELL_IN_DECREASE;
                 continue;
             }
         }
