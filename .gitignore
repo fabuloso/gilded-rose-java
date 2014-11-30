@@ -1,3 +1,4 @@
 rose/Java/.classpath
 rose/Java/.project
 rose/Java/com/gildedrose/*.class
+rose/Java/com/gildedrose/strategy/*.class
