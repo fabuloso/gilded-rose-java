@@ -6,9 +6,6 @@ class GildedRose {
     private static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
     private static final String BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT = "Backstage passes to a TAFKAL80ETC concert";
 
-    private static final int STANDARD_MAXIMUM_QUALITY = 50;
-    private static final int STANDARD_SELL_IN_DECREASE = 1;
-
     Item[] items;
 
     public GildedRose(Item[] items) {
@@ -18,51 +15,26 @@ class GildedRose {
     public void updateQuality() {
         for (Item item : items) {
             if (CONJURED.equals(item.name)) {
-                if (item.quality > 0) {
-                    item.quality = item.quality - 2 * STANDARD_SELL_IN_DECREASE;
-                    if (item.sellIn <= 0) {
-                        item.quality = item.quality - 2 * STANDARD_SELL_IN_DECREASE;
-                    }
-                    item.sellIn -= STANDARD_SELL_IN_DECREASE;
-                }
+                ConjuredUpdateStrategy strategy = new ConjuredUpdateStrategy();
+                strategy.update(item);
                 continue;
             }
 
             if (SULFURAS_HAND_OF_RAGNAROS.equals(item.name)) {
+                SulfurasUpdateStrategy strategy = new SulfurasUpdateStrategy();
+                strategy.update(item);
                 continue;
             }
 
             if (AGED_BRIE.equals(item.name)) {
-                if (item.quality < STANDARD_MAXIMUM_QUALITY) {
-                    item.quality = item.quality + 1;
-                    if (item.sellIn <= 0) {
-                        item.quality = item.quality + 1;
-                    }
-                    item.sellIn -= STANDARD_SELL_IN_DECREASE;
-                }
+                AgedBrieUpdateStrategy strategy = new AgedBrieUpdateStrategy();
+                strategy.update(item);
                 continue;
             }
 
             if (BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT.equals(item.name)) {
-                if (item.sellIn < 0) {
-                    item.quality = item.quality - item.quality;
-                } else {
-                    if (item.quality < STANDARD_MAXIMUM_QUALITY) {
-                        item.quality = item.quality + 1;
-                        if (item.sellIn < 11) {
-                            if (item.quality < STANDARD_MAXIMUM_QUALITY) {
-                                item.quality = item.quality + 1;
-                            }
-                        }
-
-                        if (item.sellIn < 6) {
-                            if (item.quality < STANDARD_MAXIMUM_QUALITY) {
-                                item.quality = item.quality + 1;
-                            }
-                        }
-                    }
-                }
-                item.sellIn -= STANDARD_SELL_IN_DECREASE;
+                BackstagePassesUpdateStrategy strategy = new BackstagePassesUpdateStrategy();
+                strategy.update(item);
                 continue;
             }
         }
