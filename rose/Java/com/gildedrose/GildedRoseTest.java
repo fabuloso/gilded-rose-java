@@ -52,26 +52,6 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void sulfuras_quality_is_always_80() {
-        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", SELL_IN, QUALITY) };
-        GildedRose app = new GildedRose(items);
-
-        app.updateQuality();
-
-        assertEquals(QUALITY, app.items[0].quality);
-    }
-
-    @Test
-    public void sulfuras_sell_in_never_decreases() {
-        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", SELL_IN, QUALITY) };
-        GildedRose app = new GildedRose(items);
-
-        app.updateQuality();
-
-        assertEquals(SELL_IN, app.items[0].sellIn);
-    }
-
-    @Test
     public void aged_brie_quality_icreases_by_one_before_sell_in() throws Exception {
         Item[] items = new Item[] { new Item("Aged Brie", SELL_IN, 49) };
         GildedRose app = new GildedRose(items);
