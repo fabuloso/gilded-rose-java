@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class BackstagePassesUpdateStrategy {
+public class BackstagePassesUpdateStrategy extends ItemUpdateStrategy {
 
     private static final int QUALITY_INCREASE = 1;
     private static final int MAXIMUM_QUALITY = 50;

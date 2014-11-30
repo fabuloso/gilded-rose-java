@@ -13,24 +13,25 @@ class GildedRose {
     }
 
     public void updateQuality() {
+        ItemUpdateStrategy strategy;
         for (Item item : items) {
             if (CONJURED.equals(item.name)) {
-                ConjuredUpdateStrategy strategy = new ConjuredUpdateStrategy();
+                strategy = new ConjuredUpdateStrategy();
                 strategy.update(item);
             }
 
             if (SULFURAS_HAND_OF_RAGNAROS.equals(item.name)) {
-                SulfurasUpdateStrategy strategy = new SulfurasUpdateStrategy();
+                strategy = new SulfurasUpdateStrategy();
                 strategy.update(item);
             }
 
             if (AGED_BRIE.equals(item.name)) {
-                AgedBrieUpdateStrategy strategy = new AgedBrieUpdateStrategy();
+                strategy = new AgedBrieUpdateStrategy();
                 strategy.update(item);
             }
 
             if (BACKSTAGE_PASSES_TO_A_TAFKAL80ETC_CONCERT.equals(item.name)) {
-                BackstagePassesUpdateStrategy strategy = new BackstagePassesUpdateStrategy();
+                strategy = new BackstagePassesUpdateStrategy();
                 strategy.update(item);
             }
         }

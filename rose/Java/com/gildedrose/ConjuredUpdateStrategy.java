@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class ConjuredUpdateStrategy {
+public class ConjuredUpdateStrategy extends ItemUpdateStrategy {
 
     private static final int SELL_IN_DECREASE = 1;
 

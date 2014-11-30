@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-public class AgedBrieUpdateStrategy {
+public class AgedBrieUpdateStrategy extends ItemUpdateStrategy {
 
     private static final int QUALITY_INCREASE = 1;
     private static final int MAXIMUM_QUALITY = 50;
