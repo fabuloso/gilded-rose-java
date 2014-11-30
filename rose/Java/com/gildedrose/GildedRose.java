@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import com.gildedrose.strategy.ItemUpdateStrategy;
+import com.gildedrose.strategy.ItemUpdateStrategyFactory;
+
 class GildedRose {
 
     Item[] items;

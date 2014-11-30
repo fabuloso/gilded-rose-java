@@ -1,4 +1,5 @@
-package com.gildedrose;
+package com.gildedrose.strategy;
+
 
 public class ItemUpdateStrategyFactory {
 
