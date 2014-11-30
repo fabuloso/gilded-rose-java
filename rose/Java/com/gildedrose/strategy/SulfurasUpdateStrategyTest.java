@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import com.gildedrose.Item;
 
-public class SulfurasUpdateStrategyTest extends SulfurasUpdateStrategy {
+public class SulfurasUpdateStrategyTest {
 
     private static final int QUALITY = 80;
     private static final int SELL_IN = 1;

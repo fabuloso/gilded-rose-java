@@ -21,7 +21,7 @@ public class ConjuredUpdateStrategyTest {
     }
 
     @Test
-    public void conjured_quality_degrades_by_one_before_sell_in() {
+    public void conjured_quality_decreases_by_1_before_sell_in() {
         Item item = new Item("Conjured", SELL_IN, QUALITY);
 
         strategy.update(item);
@@ -30,7 +30,7 @@ public class ConjuredUpdateStrategyTest {
     }
 
     @Test
-    public void conjured_quality_degrades_by_two_after_sell_in() {
+    public void conjured_quality_decreases_by_2_after_sell_in() {
         Item item = new Item("Conjured", 0, QUALITY);
 
         strategy.update(item);
