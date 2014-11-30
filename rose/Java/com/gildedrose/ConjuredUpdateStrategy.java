@@ -6,12 +6,17 @@ public class ConjuredUpdateStrategy {
 
     public void update(Item item) {
         if (item.quality > 0) {
-            item.quality -= 2 * SELL_IN_DECREASE;
-            if (item.sellIn <= 0) {
-                item.quality -= 2 * SELL_IN_DECREASE;
-            }
+            updateQuality(item);
         }
         decreaseSellIn(item);
+    }
+
+    private void updateQuality(Item item) {
+        int decreaseFactor = 2;
+        if (item.sellIn <= 0) {
+            decreaseFactor += 2;
+        }
+        item.quality -= decreaseFactor * SELL_IN_DECREASE;
     }
 
     private void decreaseSellIn(Item item) {
