@@ -13,8 +13,12 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : items) {
-            ItemUpdateStrategy strategy = ItemUpdateStrategyFactory.build(item.name);
+            ItemUpdateStrategy strategy = createStrategy(item);
             strategy.update(item);
         }
+    }
+
+    private ItemUpdateStrategy createStrategy(Item item) {
+        return ItemUpdateStrategyFactory.build(item.name);
     }
 }
