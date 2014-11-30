@@ -14,7 +14,8 @@ public class AgedBrieUpdateStrategy extends ItemUpdateStrategy {
         decreaseSellIn(item);
     }
 
-    private void updateQuality(Item item) {
+    @Override
+    protected void updateQuality(Item item) {
         int increaseFactor = 1;
         if (item.sellIn <= 0) {
             increaseFactor += 1;

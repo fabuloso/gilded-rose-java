@@ -18,7 +18,8 @@ public class BackstagePassesUpdateStrategy extends ItemUpdateStrategy {
         decreaseSellIn(item);
     }
 
-    private void updateQuality(Item item) {
+    @Override
+    protected void updateQuality(Item item) {
         int increaseFactor = 1;
         if (item.sellIn < 11) {
             if (item.quality < MAXIMUM_QUALITY) {

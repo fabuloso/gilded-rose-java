@@ -12,7 +12,8 @@ public class ConjuredUpdateStrategy extends ItemUpdateStrategy {
         decreaseSellIn(item);
     }
 
-    private void updateQuality(Item item) {
+    @Override
+    protected void updateQuality(Item item) {
         int decreaseFactor = 2;
         if (item.sellIn <= 0) {
             decreaseFactor += 2;
