@@ -4,6 +4,7 @@ public class ConjuredUpdateStrategy extends ItemUpdateStrategy {
 
     private static final int SELL_IN_DECREASE = 1;
 
+    @Override
     public void update(Item item) {
         if (item.quality > 0) {
             updateQuality(item);
@@ -19,7 +20,8 @@ public class ConjuredUpdateStrategy extends ItemUpdateStrategy {
         item.quality -= decreaseFactor * SELL_IN_DECREASE;
     }
 
-    private void decreaseSellIn(Item item) {
+    @Override
+    protected void decreaseSellIn(Item item) {
         item.sellIn -= SELL_IN_DECREASE;
     }
 }

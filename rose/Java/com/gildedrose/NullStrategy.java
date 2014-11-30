@@ -6,4 +6,8 @@ public class NullStrategy extends ItemUpdateStrategy {
     public void update(Item item) {
     }
 
+    @Override
+    protected void decreaseSellIn(Item item) {
+    }
+
 }

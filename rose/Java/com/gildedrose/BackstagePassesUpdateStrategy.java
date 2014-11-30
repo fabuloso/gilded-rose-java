@@ -6,6 +6,7 @@ public class BackstagePassesUpdateStrategy extends ItemUpdateStrategy {
     private static final int MAXIMUM_QUALITY = 50;
     private static final int SELL_IN_DECREASE = 1;
 
+    @Override
     public void update(Item item) {
         if (item.sellIn < 0) {
             item.quality = 0;
@@ -33,7 +34,8 @@ public class BackstagePassesUpdateStrategy extends ItemUpdateStrategy {
         item.quality += increaseFactor * QUALITY_INCREASE;
     }
 
-    private void decreaseSellIn(Item item) {
+    @Override
+    protected void decreaseSellIn(Item item) {
         item.sellIn -= SELL_IN_DECREASE;
     }
 }

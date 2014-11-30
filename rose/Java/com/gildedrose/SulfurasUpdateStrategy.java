@@ -6,4 +6,8 @@ public class SulfurasUpdateStrategy extends ItemUpdateStrategy {
     public void update(Item item) {
     }
 
+    @Override
+    protected void decreaseSellIn(Item item) {
+    }
+
 }
