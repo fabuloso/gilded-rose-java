@@ -10,7 +10,11 @@ public class ConjuredUpdateStrategy {
             if (item.sellIn <= 0) {
                 item.quality -= 2 * SELL_IN_DECREASE;
             }
-            item.sellIn -= SELL_IN_DECREASE;
         }
+        decreaseSellIn(item);
+    }
+
+    private void decreaseSellIn(Item item) {
+        item.sellIn -= SELL_IN_DECREASE;
     }
 }

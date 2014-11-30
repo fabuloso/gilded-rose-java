@@ -25,7 +25,10 @@ public class BackstagePassesUpdateStrategy {
                 }
             }
         }
-        item.sellIn -= SELL_IN_DECREASE;
+        decreaseSellIn(item);
     }
 
+    private void decreaseSellIn(Item item) {
+        item.sellIn -= SELL_IN_DECREASE;
+    }
 }

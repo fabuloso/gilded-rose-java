@@ -12,8 +12,11 @@ public class AgedBrieUpdateStrategy {
             if (item.sellIn <= 0) {
                 item.quality += QUALITY_INCREASE;
             }
-            item.sellIn -= SELL_IN_DECREASE;
         }
+        decreaseSellIn(item);
     }
 
+    private void decreaseSellIn(Item item) {
+        item.sellIn -= SELL_IN_DECREASE;
+    }
 }
