@@ -9,23 +9,28 @@ public class BackstagePassesUpdateStrategy {
     public void update(Item item) {
         if (item.sellIn < 0) {
             item.quality = 0;
-        } else {
-            if (item.quality < MAXIMUM_QUALITY) {
-                item.quality += QUALITY_INCREASE;
-                if (item.sellIn < 11) {
-                    if (item.quality < MAXIMUM_QUALITY) {
-                        item.quality += QUALITY_INCREASE;
-                    }
-                }
-
-                if (item.sellIn < 6) {
-                    if (item.quality < MAXIMUM_QUALITY) {
-                        item.quality += QUALITY_INCREASE;
-                    }
-                }
-            }
+            return;
+        }
+        if (item.quality < MAXIMUM_QUALITY) {
+            updateQuality(item);
         }
         decreaseSellIn(item);
+    }
+
+    private void updateQuality(Item item) {
+        int increaseFactor = 1;
+        if (item.sellIn < 11) {
+            if (item.quality < MAXIMUM_QUALITY) {
+                increaseFactor += 1;
+            }
+        }
+
+        if (item.sellIn < 6) {
+            if (item.quality < MAXIMUM_QUALITY) {
+                increaseFactor += 1;
+            }
+        }
+        item.quality += increaseFactor * QUALITY_INCREASE;
     }
 
     private void decreaseSellIn(Item item) {
